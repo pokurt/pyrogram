@@ -1578,4 +1578,20 @@ stats.getMegagroupStats#dcdf8607 flags:# dark:flags.0?true channel:InputChannel 
 stats.getMessagePublicForwards#5630281b channel:InputChannel msg_id:int offset_rate:int offset_peer:InputPeer offset_id:int limit:int = messages.Messages;
 stats.getMessageStats#b6e0a3f5 flags:# dark:flags.0?true channel:InputChannel msg_id:int = stats.MessageStats;
 
+// Experimental
+
+---functions---
+
+messages.getMessageReactionsList#15b1376a flags:# peer:InputPeer id:int reaction:flags.0?string offset:flags.1?string limit:int = MessageReactionsList;
+messages.getMessagesReactions#8bba90e6 peer:InputPeer id:Vector<int> = Updates;
+messages.sendReaction#25690ce4 flags:# peer:InputPeer msg_id:int reaction:flags.0?string = Updates;
+
+---types---
+
+messageUserReaction#d267dcbc user_id:int reaction:string = MessageUserReaction;
+messageReactionList#e3ae6108 flags:# count:int reactions:Vector<MessageUserReaction> users:Vector<User> next_offset:flags.0?string = MessageReactionsList;
+messageReactions#b87a24d1 flags:# min:flags.0?true results:Vector<ReactionCount> = MessageReactions;
+updateMessageReactions#154798c3 peer:Peer msg_id:int reactions:MessageReactions = Update;
+reactionCount#6fb250d1 flags:# chosen:flags.0?true reaction:string count:int = ReactionCount;
+
 // LAYER 123
